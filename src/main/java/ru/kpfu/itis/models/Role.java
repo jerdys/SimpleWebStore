@@ -18,10 +18,10 @@ import java.util.Collection;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "role_id")
     private Integer id;
 
-    @Column(name = "role", unique = true)
+    @Column(name = "name", unique = true)
     private String role;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "roles")

@@ -17,11 +17,11 @@ import java.util.Collection;
 @Builder
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "user_id")
     private Long id;
 
     @Email(message = "*Please provide a valid e-mail address")
@@ -31,7 +31,7 @@ public class User {
 
     @Length(min = 6, message = "*Your password must have at least 6 characters")
     @NotEmpty(message = "*Please provide a password")
-    @Column(name = "hash_password")
+    @Column(name = "password")
     private String password;
 
     @NotEmpty(message = "*Please provide your name")
@@ -42,8 +42,6 @@ public class User {
     private String lastName;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "user_role",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<Role> roles;
 }

@@ -3,6 +3,7 @@ package ru.kpfu.itis.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +23,15 @@ public class HomeController {
 
     @Autowired
     private ProductsService productsService;
+
+    @GetMapping("/")
+    public String getHomePage(Authentication authentication) {
+        if (authentication != null) {
+            return "home";
+        }
+
+        return "login";
+    }
 
     @GetMapping("/home")
     public ModelAndView getHomePage(@RequestParam("pageSize") Optional<Integer> pageSize,

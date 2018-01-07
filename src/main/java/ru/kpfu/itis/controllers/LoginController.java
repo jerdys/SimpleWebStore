@@ -9,9 +9,9 @@ public class LoginController {
     @GetMapping("/login")
     public String getLoginPage(Authentication authentication) {
         if (authentication != null) {
-            return "/home";
+            return "home";
         }
 
-        return "/login";
+        return "login";
     }
 }

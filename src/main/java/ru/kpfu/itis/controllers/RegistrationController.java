@@ -30,7 +30,7 @@ public class RegistrationController {
             return modelAndView;
         }
 
-        modelAndView.setViewName("registration");
+        modelAndView.setViewName("register");
 
         return modelAndView;
     }
@@ -50,7 +50,7 @@ public class RegistrationController {
 
             modelAndView.addObject("successMessage", "User has been registered successfully");
             modelAndView.addObject("user", user);
-            modelAndView.setViewName("registration");
+            modelAndView.setViewName("register");
         }
 
         return modelAndView;

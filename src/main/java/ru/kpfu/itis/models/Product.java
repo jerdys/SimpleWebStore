@@ -21,7 +21,7 @@ import java.math.BigDecimal;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "product_id")
     private Long id;
 
     @Length(min = 3, message = "*Product name must contain at least 3 characters")
